@@ -1,0 +1,41 @@
+// import { useState } from "react";
+
+// function NewTaskInput() {
+//   const [task, setTask] = useState([]);
+//   const [count, setCount] = useState(task.length);
+//   const [inputValue, setInputValue] = useState('');
+
+
+//   console.log(task);
+
+
+//   function handleInputChange(event) {
+//     setInputValue(event.target.value);
+//   }
+
+
+//   function handleClick(event) {
+//     //console.log('clicked!', event.target);
+//     //Use the inputValue from tate to add a task to the task list
+//     let newTask = [...task, inputValue ];
+//     setTask(newTask);
+//     setCount(newTask.length);
+//     //need to clear input value on click of button
+//   }
+
+
+//   return (
+//     <>      
+//       <input type="text" placeholder="Another thing to do..." onChange={handleInputChange}/>
+//       <button onClick={handleClick}>Add it!</button>
+//       <p>I have {count} things to get done...</p>
+//       {/* <ul>
+//         {task.map(task => {
+//           return <li key={task}>{task}</li>
+//         })}
+//       </ul> */}
+//     </>
+//   );
+// }
+
+// export default NewTaskInput;
