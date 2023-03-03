@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ButtonGroup, CloseButton } from 'react-bootstrap';
 import './App.css';
 
-
+//***********START APP**************/
 function App() {
   const [tasks, setTasks] = useState([]);
   const [display, setDisplay] = useState("active");
@@ -10,7 +10,7 @@ function App() {
   console.log(tasks);
 
 
-  //***************DISPLAY FILTERED TASKS***********/
+//***************DISPLAY FILTERED TASKS***********/
   let filterDisplay = tasks;
   if (display === "active") {
     filterDisplay = tasks.filter((tasks) => tasks.done === false);
@@ -23,9 +23,10 @@ function App() {
   }
   console.log(display);
 
+//***********APP RETURN****************/
   return (
     <>
-      <h1>Stuff I need to do...</h1>
+      <h1>Stuff I need TO DO...</h1>
       <p>I have {tasks.length} things to get done...</p>
 
       <AddTask setTasks={setTasks} tasks={tasks} />
@@ -43,7 +44,7 @@ function AddTask({ setTasks, tasks }) {
   const [value, setValue] = useState('');
   // const [state, setState] = useState('');
 
-  //**********INSERT NEW TASK WHEN BUTTON CLICKED**********/
+//**********INSERT NEW TASK WHEN BUTTON CLICKED**********/
 
   function insertTask() {
     setTasks([...tasks, { text: value, id: Date.now(), done: false }]);
@@ -52,12 +53,14 @@ function AddTask({ setTasks, tasks }) {
   return (
     <>
       <input onChange={(e) => 
-        setValue(e.target.value)} type="textarea" />
+        setValue(e.target.value)} type="textarea" placeholder='Add new task...' />
       <button onClick= {insertTask}>Add it!</button>
       
     </>
   );
 }
+
+//***********LIST OF TASKS************/
 
 function List({ setTasks, tasks, setDisplay }) {
 
@@ -66,6 +69,7 @@ function List({ setTasks, tasks, setDisplay }) {
       return oldValues.filter(task => task.id !== id)
     })
   }
+
   const updateStatus = (id, checked) => {
     setTasks(oldValues => {
       return oldValues.map(task => task.id === id ? { ...task, done:checked } : task)
@@ -98,6 +102,7 @@ function List({ setTasks, tasks, setDisplay }) {
       <ul>
         {tasksArray}
       </ul>
+      
       <ButtonGroup>
         <>
           <button onClick={(e) => {
