@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ButtonGroup } from 'react-bootstrap';
+import { ButtonGroup, CloseButton } from 'react-bootstrap';
 import './App.css';
 
 
@@ -83,7 +83,9 @@ function List({ setTasks, tasks, setDisplay }) {
             onChange={(e) => updateStatus(task.id, e.target.checked)}
           />
           {task.text}
-          <button onClick={() => deleteById(task.id)}>X</button>
+          <CloseButton onClick={() => 
+            deleteById(task.id)}
+            >X</CloseButton>
         </li>
 
 
